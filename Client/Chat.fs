@@ -9,6 +9,7 @@ module Chat =
 
     type CreateRequest =
         { Model: string
+          Temperature : float
           Messages: RequestMessage[] }
 
     type ResponseMessage = { Role: string; Content: string }

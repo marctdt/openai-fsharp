@@ -6,6 +6,7 @@ open FsHttp
 type HttpRequester() =
     interface IHttpRequester with
         member this.postRequest<'T, 'R> (config: ApiConfig) (data: 'T) =
+            //printfn "%A" data
             http {
                 POST config.Endpoint
                 AuthorizationBearer config.ApiKey
@@ -16,6 +17,7 @@ type HttpRequester() =
                 jsonSerialize data
             }
             |> Request.send
+            |> Response.assertOk
             |> Response.deserializeJson<'R>
 
         member this.postRequestEmpty<'R>(config: ApiConfig) =
