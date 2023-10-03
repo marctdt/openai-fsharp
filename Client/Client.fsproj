@@ -5,6 +5,15 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <RootNamespace>client</RootNamespace>
     <AssemblyName>OpenAI.Client</AssemblyName>
+    <Configurations>Debug;Release;LunaChat Release</Configurations>
+    <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'LunaChat Release' ">
+    <Optimize Condition=" '$(Optimize)' == '' ">true</Optimize>
+    <DebugSymbols Condition="'$(DebugSymbols)' == '' ">false</DebugSymbols>
+    <Optimize Condition="'$(Optimize)' == '' ">true</Optimize>
+    <Tailcalls Condition="'$(Tailcalls)' == '' ">true</Tailcalls>
+    <OutputPath>../../MarcTDT.LunaChat/Lib\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Types.fs" />

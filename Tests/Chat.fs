@@ -22,6 +22,7 @@ let tests =
                   |> chat
                   |> create
                       { Model = "text-davinci-003"
+                        Temperature = 1
                         Messages = [| { Role = "user"; Content = "Hello!" } |] }
 
               Expect.equal response responseObject ""
@@ -39,6 +40,7 @@ let tests =
 
                       create
                           { Model = "text-davinci-003"
+                            Temperature = 1
                             Messages = [| { Role = "user"; Content = "Hello!" } |] }
                   }
 
