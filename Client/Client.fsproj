@@ -15,6 +15,11 @@
     <Tailcalls Condition="'$(Tailcalls)' == '' ">true</Tailcalls>
     <OutputPath>../../MarcTDT.LunaChat/Lib/OpenAi.Client\</OutputPath>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Dependencies' ">
+    <OutputPath>../../MarcTDT.LunaChat/Lib/OpenAi.Client\</OutputPath>
+    <Optimize>true</Optimize>
+    <TailCalls>true</TailCalls>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Types.fs" />
     <Compile Include="HttpRequester.fs" />

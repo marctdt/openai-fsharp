@@ -49,3 +49,12 @@ module Chat =
                 Endpoint = Url.combine config.ApiConfig.Endpoint "/completions" }
 
         config.HttpRequester.postRequest<CreateRequest, CreateResponse> apiConfig request
+
+    let createAsync (request: CreateRequest) (config: ConfigWithChatContext) : Async<CreateResponse> =
+        async {
+            let apiConfig =
+                { config.ApiConfig with
+                    Endpoint = Url.combine config.ApiConfig.Endpoint "/completions" }
+
+            return! config.HttpRequester.postRequestAsync<CreateRequest, CreateResponse> apiConfig request
+        }
