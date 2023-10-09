@@ -9,6 +9,7 @@ type ApiConfig = { Endpoint: string; ApiKey: string }
 
 type IHttpRequester =
     abstract member postRequest<'T, 'R> : config: ApiConfig -> data: 'T -> 'R
+    abstract member postRequestAsync<'T, 'R> : config: ApiConfig -> data: 'T -> Async<'R>
     abstract member postRequestEmpty<'R> : config: ApiConfig -> 'R
     abstract member PrepareRequestForMultiPart: config: ApiConfig -> HeaderContext
     abstract member postRequestMultiPart<'R> : httpRequest: MultipartContext -> 'R
